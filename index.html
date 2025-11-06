@@ -10775,7 +10775,7 @@
                   }
                   .need-help-box .need-help-btn{
                      width: 284px;
-                     padding: 11px max(10px,calc(var(--body-font-size) * .18px));
+                     padding: max(6px,calc(var(--body-font-size) * .11px)) max(14px,calc(var(--body-font-size) * .18px));
                      border: none;
                      border-radius: 6px;
                      background: #FFF;
@@ -10861,7 +10861,7 @@
                   .flash-sale-swiper .badge-box,
                   .categories-product-item .badge-box {
                         position: absolute;
-                        top: 19px;
+                        top: max(13px,calc(var(--body-font-size) * .22px));
                         right: 15px;
                   }
 
@@ -10988,7 +10988,7 @@
                   }
 
                   #app-box .tab-item {
-                        min-width: calc(var(--body-font-size) * 2.95px);
+                        min-width: calc(var(--body-font-size) * 2.9px);
                         cursor: pointer;
                         flex-shrink: 0;
                         position: relative;
@@ -11096,7 +11096,11 @@
                   }
 
                   /* 极小屏手机 */
-                  @media screen and (max-width: 359px) {}
+                  @media screen and (max-width: 359px) {
+                        .need-help-box .need-help-btn{
+                              width: 100%;
+                        }
+                  }
             </style>
             <div id="app-box">
                   <section class="warranty-successful-box d-flex flex-column align-items-center">
