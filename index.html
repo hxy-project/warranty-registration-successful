@@ -10355,7 +10355,9 @@
                   #app-box .font-b {
                         font-weight: 800 !important;
                   }
-
+                  #app-box .special-price{
+                   text-decoration: line-through;
+                  }
                   #app-box .text-color-333 {
                         color: #333;
                   }
@@ -10389,13 +10391,13 @@
                   }
 
                   #app-box .font-size-22 {
-                        font-size: calc(var(--body-font-size) * 0.22px) !important;
+                        font-size: max(14px, calc(var(--body-font-size) * 0.22px)) !important;
                         font-style: normal;
                         font-weight: 600;
                   }
 
                   #app-box .font-size-24 {
-                        font-size: calc(var(--body-font-size) * 0.24px) !important;
+                        font-size: max(13px, calc(var(--body-font-size) * 0.24px)) !important;
                         font-style: normal;
                         font-weight: 700;
                   }
@@ -10669,7 +10671,7 @@
                   /* main */
                   #app-box .warranty-successful-box {
                         background: #F7F7F7;
-                        padding: calc(var(--body-font-size) * 1px) 15px;
+                        padding: calc(var(--body-font-size) * .6px) 15px;
                   }
 
                   #app-box .text-max-w {
@@ -10696,7 +10698,7 @@
 
                   #app-box .discount-code {
                         color: #759C4D;
-                        font-size: calc(var(--body-font-size) * .2px);
+                        font-size: max(12px,calc(var(--body-font-size) * .2px));
                         font-style: normal;
                         font-weight: 500;
                         line-height: 120%;
@@ -10729,7 +10731,8 @@
                   }
 
                   #app-box .slogan-box {
-                        gap: calc(var(--body-font-size) * .65px);
+                        column-gap: calc(var(--body-font-size) * .65px);
+                        row-gap: 9px;
                         flex-wrap: wrap;
                   }
 
@@ -10768,18 +10771,21 @@
                         gap: calc(var(--body-font-size) * .3px);
                         flex-wrap: wrap;
                   }
-                  .need-help-box .need-btn_2{
+
+                  .need-help-box .need-btn_2 {
                         border: 1px solid #FFF !important;
                         background-color: #365786 !important;
                         color: #FFF;
                   }
-                  .need-help-box .need-help-btn{
-                     width: 284px;
-                     padding: max(6px,calc(var(--body-font-size) * .11px)) max(14px,calc(var(--body-font-size) * .18px));
-                     border: none;
-                     border-radius: 6px;
-                     background: #FFF;
-                 }
+
+                  .need-help-box .need-help-btn {
+                        width: 284px;
+                        padding: max(6px, calc(var(--body-font-size) * .11px)) max(14px, calc(var(--body-font-size) * .18px));
+                        border: none;
+                        border-radius: 6px;
+                        background: #FFF;
+                  }
+
                   #app-box .flash-sale-title {
                         gap: 5px;
                         color: #000000;
@@ -10863,7 +10869,7 @@
                   .flash-sale-swiper .badge-box,
                   .categories-product-item .badge-box {
                         position: absolute;
-                        top: max(13px,calc(var(--body-font-size) * .22px));
+                        top: max(13px, calc(var(--body-font-size) * .22px));
                         right: 15px;
                   }
 
@@ -11058,6 +11064,12 @@
                   /**
        pc端样式
        */
+                  @media screen and (min-width: 1025px) {
+                    .pc-w-254{
+                        max-width: 254px;
+                    }
+                  }
+
                   @media screen and (max-width: 1024px) {
 
                         #app-box .categories-product-item,
@@ -11092,25 +11104,45 @@
                               display: grid;
                               grid-template-columns: 1fr 1fr;
                         }
-                        #app-box .m-w-176{
-                             width: 176px;
+
+                        #app-box .m-w-176 {
+                              width: 176px;
                         }
-                        #app-box .tab-item{
+
+                        #app-box .tab-item {
                               padding: 5px 8px;
+                        }
+                        #app-box .code-text-box{
+                           padding: 8px 40px;
+                           width: 100%;
+                        }
+                        #app-box .custom-button-btn svg,.slogan-box svg{
+                              width: 18px;
+                              height: 18px;
+                        }
+                        #app-box .m-font-size-16{
+                          font-size: 16px !important;
                         }
                   }
 
                   /* 极小屏手机 */
-                  @media screen and (max-width: 359px) {
-                        .need-help-box .need-help-btn{
+                  @media screen and (max-width: 375px) {
+                        .need-help-box .need-help-btn {
                               width: 100%;
+                        }
+                        #app-box .custom-button-btn svg{
+                              width: 15px;
+                              height: 15px;
+                        }
+                        #app-box .m-display-none{
+                            display: none;
                         }
                   }
             </style>
             <div id="app-box">
                   <section class="warranty-successful-box d-flex flex-column align-items-center">
                         <img src="./assets/website/warranty-registration-success/image/warranty_successful.png"
-                              class="mb-54 m-w-176">
+                              class="mb-30 m-w-176 pc-w-254">
                         <h2 class="text-center mb-15 font-size-40 Montserrat-R">Warranty Registration Successful!
                         </h2>
                         <p class="font-size-30 text-center text-max-w Montserrat-R text-color-333">Thank you for
@@ -11132,6 +11164,7 @@
                                           your next purchase
                                     </p>
                                     <p class="discount-code mb-15">Discount Code：</p>
+                                  <div class="d-flex flex-column align-items-center">
                                     <div class="code-text-box d-flex flex-column align-items-center mb-50">
                                           <span class="primary-color font-size-28 Montserrat-R">ALORAIR10</span>
                                     </div>
@@ -11147,8 +11180,9 @@
                                                       <span>Shop
                                                             Now</span></button></a>
                                     </div>
-                                    <div class="d-flex slogan-box">
-                                          <div class="d-flex">
+                                  </div>
+                                    <div class="d-flex slogan-box justify-content-center">
+                                          <div class="d-flex align-items-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                                       viewBox="0 0 25 25" fill="none" class="mr-4">
                                                       <path d="M9.375 17.9688C8.08057 17.9688 7.03125 19.0181 7.03125 20.3125C7.03125 21.6069 8.08057 22.6562 9.375 22.6562C10.6694 22.6562 11.7188 21.6069 11.7188 20.3125C11.7188 19.0181 10.6694 17.9688 9.375 17.9688ZM9.375 21.0938C8.94353 21.0938 8.59375 20.744 8.59375 20.3125C8.59375 19.881 8.94353 19.5312 9.375 19.5312C9.80647 19.5312 10.1562 19.881 10.1562 20.3125C10.1562 20.744 9.80647 21.0938 9.375 21.0938ZM19.5312 17.9688C18.2368 17.9688 17.1875 19.0181 17.1875 20.3125C17.1875 21.6069 18.2368 22.6562 19.5312 22.6562C20.8257 22.6562 21.875 21.6069 21.875 20.3125C21.875 19.0181 20.8257 17.9688 19.5312 17.9688ZM19.5312 21.0938C19.0998 21.0938 18.75 20.744 18.75 20.3125C18.75 19.881 19.0998 19.5312 19.5312 19.5312C19.9627 19.5312 20.3125 19.881 20.3125 20.3125C20.3125 20.744 19.9627 21.0938 19.5312 21.0938ZM22.1666 5.4957C21.4903 4.65925 20.3664 4.67278 20.1119 4.6875H6.19026L6.04478 3.78228C6.04123 3.76026 6.03675 3.73841 6.03135 3.71677C5.90386 3.20681 5.43623 2.34375 4.49219 2.34375H2.34375C1.91228 2.34375 1.5625 2.69353 1.5625 3.125C1.5625 3.55647 1.91228 3.90625 2.34375 3.90625H4.42483C4.45442 3.9479 4.48945 4.01846 4.50994 4.07922L6.25989 14.9677C6.26343 14.9897 6.26792 15.0116 6.27331 15.0332C6.3147 15.1988 6.54731 16.0506 7.06475 16.5681C7.66682 17.1701 8.50066 17.1875 8.59375 17.1875H21.0938C21.5252 17.1875 21.875 16.8377 21.875 16.4062C21.875 15.9748 21.5252 15.625 21.0938 15.625H8.60188C8.52522 15.6218 8.2928 15.5864 8.1696 15.4632C8.01677 15.3104 7.86091 14.9175 7.79653 14.6821L7.69697 14.0625H20.138C20.4928 14.0625 20.8031 13.8234 20.8935 13.4803C20.9011 13.4511 21.6706 10.535 22.4291 8.0397C22.7544 6.96946 22.6661 6.11353 22.1666 5.4957ZM20.9341 7.58528C20.3716 9.43599 19.8039 11.5124 19.538 12.5H7.44585L6.44138 6.25H20.138C20.1599 6.25 20.1818 6.24907 20.2036 6.24724C20.2901 6.23992 20.7677 6.25078 20.9515 6.47812C21.0989 6.66042 21.0926 7.06396 20.9341 7.58528Z"
@@ -11157,7 +11191,7 @@
                                                 <p class="text-color-333 font-size-24 Montserrat-R">on orders over <span
                                                             class="font-b identification-color">$300</span></p>
                                           </div>
-                                          <div class="d-flex">
+                                          <div class="d-flex align-items-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                                       viewBox="0 0 25 25" fill="none" class="mr-4">
                                                       <path d="M12.5 9.01758C12.7337 9.01758 12.9578 9.11012 13.123 9.27539C13.2883 9.44066 13.3809 9.66472 13.3809 9.89844V13.7002L15.207 15.5264H15.2061C15.2897 15.6074 15.3573 15.7036 15.4033 15.8105C15.4495 15.9181 15.4736 16.0344 15.4746 16.1514C15.4756 16.2682 15.4534 16.3841 15.4092 16.4922C15.3649 16.6004 15.2995 16.6995 15.2168 16.7822C15.1341 16.865 15.0351 16.9303 14.9268 16.9746C14.8186 17.0188 14.7028 17.041 14.5859 17.04C14.4689 17.039 14.3526 17.0149 14.2451 16.9688C14.1377 16.9226 14.0402 16.8556 13.959 16.7715V16.7705L11.876 14.6875C11.7114 14.5224 11.6192 14.2986 11.6191 14.0654V9.89844C11.6191 9.66472 11.7117 9.44066 11.877 9.27539C12.0422 9.11012 12.2663 9.01758 12.5 9.01758Z"
@@ -11213,10 +11247,10 @@
                                                 Blower Fan with 18
                                                 Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                           <div class="price-box d-flex mb-10">
-                                                <span class="mr-8 font-size-26 Montserrat-R">$343.20 USD</span>
+                                                <span class="mr-8 font-size-26 Montserrat-R">$343.20 <span class="m-display-none"><span class="m-display-none">USD</span></span></span>
                                                 <p class="d-flex align-items-center"><span
-                                                            class="font-size-16 Montserrat-R">$429.00
-                                                            USD</span></p>
+                                                            class="font-size-16 Montserrat-R special-price">$429.00
+                                                            <span class="m-display-none">USD</span></span></p>
                                           </div>
                                           <a href="#" class="buy-now-link"> <button
                                                       class="custom-button-btn btn-7 font-size-22">
@@ -11241,10 +11275,10 @@
                                                 Blower Fan with 18
                                                 Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                           <div class="price-box d-flex mb-10">
-                                                <span class="mr-8 font-size-26 Montserrat-R">$343.20 USD</span>
+                                                <span class="mr-8 font-size-26 Montserrat-R">$343.20 <span class="m-display-none">USD</span></span>
                                                 <p class="d-flex align-items-center"><span
-                                                            class="font-size-16 Montserrat-R">$429.00
-                                                            USD</span></p>
+                                                            class="font-size-16 Montserrat-R special-price">$429.00
+                                                            <span class="m-display-none">USD</span></span></p>
                                           </div>
                                           <a href="#" class="buy-now-link"> <button
                                                       class="custom-button-btn btn-7 font-size-22">
@@ -11269,10 +11303,10 @@
                                                 Blower Fan with 18
                                                 Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                           <div class="price-box d-flex mb-10">
-                                                <span class="mr-8 font-size-26 Montserrat-R">$343.20 USD</span>
+                                                <span class="mr-8 font-size-26 Montserrat-R">$343.20 <span class="m-display-none">USD</span></span>
                                                 <p class="d-flex align-items-center"><span
-                                                            class="font-size-16 Montserrat-R">$429.00
-                                                            USD</span></p>
+                                                            class="font-size-16 Montserrat-R special-price">$429.00
+                                                            <span class="m-display-none">USD</span></span></p>
                                           </div>
                                           <a href="#" class="buy-now-link"> <button
                                                       class="custom-button-btn btn-7 font-size-22">
@@ -11297,10 +11331,10 @@
                                                 Blower Fan with 18
                                                 Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                           <div class="price-box d-flex mb-10">
-                                                <span class="mr-8 font-size-26 Montserrat-R">$343.20 USD</span>
+                                                <span class="mr-8 font-size-26 Montserrat-R">$343.20 <span class="m-display-none">USD</span></span>
                                                 <p class="d-flex align-items-center"><span
-                                                            class="font-size-16 Montserrat-R">$429.00
-                                                            USD</span></p>
+                                                            class="font-size-16 Montserrat-R special-price">$429.00
+                                                            <span class="m-display-none">USD</span></span></p>
                                           </div>
                                           <a href="#" class="buy-now-link"> <button
                                                       class="custom-button-btn btn-7 font-size-22">
@@ -11325,10 +11359,10 @@
                                                 Blower Fan with 18
                                                 Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                           <div class="price-box d-flex mb-10">
-                                                <span class="mr-8 font-size-26 Montserrat-R">$343.20 USD</span>
+                                                <span class="mr-8 font-size-26 Montserrat-R">$343.20 <span class="m-display-none">USD</span></span>
                                                 <p class="d-flex align-items-center"><span
-                                                            class="font-size-16 Montserrat-R">$429.00
-                                                            USD</span></p>
+                                                            class="font-size-16 Montserrat-R special-price">$429.00
+                                                            <span class="m-display-none">USD</span></span></p>
                                           </div>
                                           <a href="#" class="buy-now-link"> <button
                                                       class="custom-button-btn btn-7 font-size-22">
@@ -11413,10 +11447,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11443,10 +11477,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11473,10 +11507,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11503,10 +11537,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11514,7 +11548,7 @@
                                                 </div>
                                           </div>
                                           <div class="learn-more-box d-flex justify-content-center align-items-center">
-                                                <a href="javascript:;" class="font-size-22">View all</a>
+                                                <a href="javascript:;" class="font-size-22 m-font-size-16">View all</a>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                       viewBox="0 0 20 20" fill="none">
                                                       <path d="M3 12.5C3.50909 12.5 12.5455 12.5 17 12.5C14.6667 11.6667 12.5455 10.625 11.9091 7.5"
@@ -11546,10 +11580,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11576,10 +11610,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11606,10 +11640,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11636,10 +11670,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11647,7 +11681,7 @@
                                                 </div>
                                           </div>
                                           <div class="learn-more-box d-flex justify-content-center align-items-center">
-                                                <a href="javascript:;" class="font-size-22">View all</a>
+                                                <a href="javascript:;" class="font-size-22 m-font-size-16">View all</a>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                       viewBox="0 0 20 20" fill="none">
                                                       <path d="M3 12.5C3.50909 12.5 12.5455 12.5 17 12.5C14.6667 11.6667 12.5455 10.625 11.9091 7.5"
@@ -11679,10 +11713,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11709,10 +11743,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11739,10 +11773,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11769,10 +11803,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11780,7 +11814,7 @@
                                                 </div>
                                           </div>
                                           <div class="learn-more-box d-flex justify-content-center align-items-center">
-                                                <a href="javascript:;" class="font-size-22">View all</a>
+                                                <a href="javascript:;" class="font-size-22 m-font-size-16">View all</a>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                       viewBox="0 0 20 20" fill="none">
                                                       <path d="M3 12.5C3.50909 12.5 12.5455 12.5 17 12.5C14.6667 11.6667 12.5455 10.625 11.9091 7.5"
@@ -11812,10 +11846,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11842,10 +11876,10 @@
                                                             Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                                       <div class="price-box d-flex mb-10">
                                                             <span class="mr-8 font-size-26 Montserrat-R">$343.20
-                                                                  USD</span>
+                                                                  <span class="m-display-none">USD</span></span>
                                                             <p class="d-flex align-items-center"><span
-                                                                        class="font-size-16 Montserrat-R">$429.00
-                                                                        USD</span></p>
+                                                                        class="font-size-16 Montserrat-R special-price">$429.00
+                                                                        <span class="m-display-none">USD</span></span></p>
                                                       </div>
                                                       <a href="#" class="buy-now-link"> <button
                                                                   class="custom-button-btn btn-7 font-size-22">
@@ -11853,7 +11887,7 @@
                                                 </div>
                                           </div>
                                           <div class="learn-more-box d-flex justify-content-center align-items-center">
-                                                <a href="javascript:;" class="font-size-22">View all</a>
+                                                <a href="javascript:;" class="font-size-22 m-font-size-16">View all</a>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                       viewBox="0 0 20 20" fill="none">
                                                       <path d="M3 12.5C3.50909 12.5 12.5455 12.5 17 12.5C14.6667 11.6667 12.5455 10.625 11.9091 7.5"
@@ -11870,7 +11904,7 @@
                               class="accessories-title Montserrat-R font-size-40 d-flex justify-content-center align-items-center text-center font-b mb-52">
                               🛠️ Recommended Accessories
                         </h1>
-                        <div class="accessories-product-item main-container">
+                        <div class="accessories-product-item main-container mb-50">
                               <div class="d-flex flex-column align-items-center">
                                     <div class="img-container mb-15">
                                           <a href="javascript:;"
@@ -11887,10 +11921,10 @@
                                           Blower Fan with 18
                                           Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                     <div class="price-box d-flex mb-10">
-                                          <span class="mr-8 font-size-26 Montserrat-R">$343.20 USD</span>
+                                          <span class="mr-8 font-size-26 Montserrat-R">$343.20 <span class="m-display-none">USD</span></span>
                                           <p class="d-flex align-items-center"><span
-                                                      class="font-size-16 Montserrat-R">$429.00
-                                                      USD</span></p>
+                                                      class="font-size-16 Montserrat-R special-price">$429.00
+                                                      <span class="m-display-none">USD</span></span></p>
                                     </div>
                                     <a href="#" class="buy-now-link"> <button
                                                 class="custom-button-btn btn-7 font-size-22">
@@ -11912,10 +11946,10 @@
                                           Blower Fan with 18
                                           Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                     <div class="price-box d-flex mb-10">
-                                          <span class="mr-8 font-size-26 Montserrat-R">$343.20 USD</span>
+                                          <span class="mr-8 font-size-26 Montserrat-R">$343.20 <span class="m-display-none">USD</span></span>
                                           <p class="d-flex align-items-center"><span
-                                                      class="font-size-16 Montserrat-R">$429.00
-                                                      USD</span></p>
+                                                      class="font-size-16 Montserrat-R special-price">$429.00
+                                                      <span class="m-display-none">USD</span></span></p>
                                     </div>
                                     <a href="#" class="buy-now-link"> <button
                                                 class="custom-button-btn btn-7 font-size-22">
@@ -11937,10 +11971,10 @@
                                           Blower Fan with 18
                                           Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                     <div class="price-box d-flex mb-10">
-                                          <span class="mr-8 font-size-26 Montserrat-R">$343.20 USD</span>
+                                          <span class="mr-8 font-size-26 Montserrat-R">$343.20 <span class="m-display-none">USD</span></span>
                                           <p class="d-flex align-items-center"><span
-                                                      class="font-size-16 Montserrat-R">$429.00
-                                                      USD</span></p>
+                                                      class="font-size-16 Montserrat-R special-price">$429.00
+                                                      <span class="m-display-none">USD</span></span></p>
                                     </div>
                                     <a href="#" class="buy-now-link"> <button
                                                 class="custom-button-btn btn-7 font-size-22">
@@ -11962,15 +11996,24 @@
                                           Blower Fan with 18
                                           Timer, Handle Wheelkit, Digital Control, Carpet</a>
                                     <div class="price-box d-flex mb-10">
-                                          <span class="mr-8 font-size-26 Montserrat-R">$343.20 USD</span>
+                                          <span class="mr-8 font-size-26 Montserrat-R">$343.20 <span class="m-display-none">USD</span></span>
                                           <p class="d-flex align-items-center"><span
-                                                      class="font-size-16 Montserrat-R">$429.00
-                                                      USD</span></p>
+                                                      class="font-size-16 Montserrat-R special-price">$429.00
+                                                      <span class="m-display-none">USD</span></span></p>
                                     </div>
                                     <a href="#" class="buy-now-link"> <button
                                                 class="custom-button-btn btn-7 font-size-22">
                                                 <span>Buy Now</span></button></a>
                               </div>
+                        </div>
+                        <div class="learn-more-box d-flex justify-content-center align-items-center">
+                              <a href="javascript:;" class="font-size-22 m-font-size-16">View all</a>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 20 20" fill="none">
+                                    <path d="M3 12.5C3.50909 12.5 12.5455 12.5 17 12.5C14.6667 11.6667 12.5455 10.625 11.9091 7.5"
+                                          stroke="#22467A" stroke-width="1.5" stroke-linecap="square"
+                                          stroke-linejoin="bevel" />
+                              </svg>
                         </div>
                   </section>
                   <section class="need-help-box">
@@ -11983,9 +12026,11 @@
                                     your AlorAir products.
                               </p>
                               <div class="need-help-btn-box d-flex justify-content-center align-items-center">
-                                    <a href="/contact-us" class="buy-now-link"> <button class="need-help-btn font-size-20">
+                                    <a href="/contact-us" class="buy-now-link"> <button
+                                                class="need-help-btn font-size-20">
                                                 <span>Contact Support</span></button></a>
-                                    <a href="/video-center" class="buy-now-link"> <button class="need-help-btn need-btn_2 font-size-20">
+                                    <a href="/video-center" class="buy-now-link"> <button
+                                                class="need-help-btn need-btn_2 font-size-20">
                                                 <span>Video Center
                                                 </span></button></a>
                               </div>
